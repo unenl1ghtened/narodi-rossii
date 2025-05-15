@@ -1,20 +1,32 @@
 (function () {
   // Бургер
 
-  document.addEventListener("click", burgerInit);
+  if (window.innerWidth <= 768) {
+    document.addEventListener("click", burgerInit);
 
-  function burgerInit(e) {
-    const burgerIcon = e.target.closest(".burger-icon");
-    const burgerNavLink = e.target.closest(".nav__link");
+    function burgerInit(e) {
+      const burgerIcon = e.target.closest(".burger-icon");
+      const burgerNavLink = e.target.closest(".nav__link");
+      const overflow = document.querySelector(".overflow");
 
-    if (!burgerIcon && !burgerNavLink) return;
-    if (document.documentElement.clientWidth > 900) return;
+      function closeMenu() {
+        document.body.classList.remove("body--opened-menu");
+        overflow.classList.remove("active");
+      }
 
-    if (!document.body.classList.contains("body--opened-menu")) {
-      document.body.classList.add("body--opened-menu");
-    } else {
-      document.body.classList.remove("body--opened-menu");
+      if (!burgerIcon && !burgerNavLink) return;
+      if (document.documentElement.clientWidth > 900) return;
+
+      if (!document.body.classList.contains("body--opened-menu")) {
+        document.body.classList.add("body--opened-menu");
+        overflow.classList.add("active");
+      } else {
+        closeMenu();
+      }
+
+      overflow.addEventListener("click", () => {
+        closeMenu();
+      });
     }
   }
-
 })();

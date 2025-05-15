@@ -46,26 +46,22 @@ html {
   flex-grow: 1;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: center;
-  color: #312c27;
-  background: var(--accent-color);
-  border-radius: 60px;
-  padding: 3px 15px;
-  height: 62px;
-  width: 100%;
-
+.overflow {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: #0000005d;
+  z-index: 5;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
   transition: var(--transition);
 }
-
-.button:hover {
-  background: #ff9138;
+.overflow.active {
+  display: block;
+  transform: translateY(0%);
+  opacity: 1;
+  visibility: visible;
 }
 
 .body--opened-menu {
