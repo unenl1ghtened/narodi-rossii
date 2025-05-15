@@ -69,6 +69,7 @@ html {
 
 .title {
   font-weight: 600;
+  font-size: 48px;
   line-height: 1.45833;
 }
 
@@ -107,6 +108,11 @@ html {
   background: #25395f;
 }
 /* ============================= */
+@media (max-width: 768px) {
+  .title {
+    font-size: 38px;
+  }
+}
 
 @media (max-width: 520px) {
   .tags {
@@ -122,5 +128,11 @@ html {
     border: 1px solid #000;
     border-radius: 50px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 450px) {
+  .title {
+    font-size: 36px;
   }
 }
