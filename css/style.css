@@ -59,6 +59,7 @@
 .main__descr {
   max-width: 530px;
   width: 100%;
+  margin-bottom: 61px;
 }
 .map__descr {
   margin-bottom: 81px;
@@ -90,7 +91,8 @@
   width: 100%;
   margin: 0 auto;
 }
-.stories__slider-wrapper {
+.stories__slider-wrapper,
+.tests__block-list {
   margin-bottom: 60px;
 }
 .stories__slider-btn-cont {
@@ -106,6 +108,7 @@
   border-radius: 50%;
   width: 61px;
   height: 61px;
+  cursor: pointer;
 }
 .stories__slider-button path {
   fill: #000;
@@ -160,6 +163,74 @@
 .stories__slie-descr {
   max-width: 300px;
 }
+
+/* =======TESTS====== */
+
+.tests {
+  position: relative;
+}
+.tests::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(../img/decor/Vector.svg) no-repeat;
+  background-position: 50% 70%;
+  transform: rotate(180deg);
+  z-index: -1;
+}
+.tests__block-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: space-between;
+}
+
+.tests__block {
+  max-width: 420px;
+  height: 450px;
+  padding: 25px 25px 45px;
+  background: #fff;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  overflow: hidden;
+}
+.tests__block-image {
+  width: 100%;
+  height: 305px;
+  border-radius: var(--border-radius);
+  margin-bottom: 37px;
+  object-fit: cover;
+  object-position: center top;
+  transition: var(--transition);
+}
+.tests__block-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+.tests__block-descr {
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 37px;
+}
+
+.tests__block-descr,
+.tests__block-btn {
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.tests__block:hover .tests__block-image {
+  height: 166px;
+  object-fit: cover;
+}
+.tests__block:hover .tests__block-descr,
+.tests__block:hover .tests__block-btn {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* ========MEDIA========== */
 
 @media (max-width: 1200px) {
@@ -223,7 +294,8 @@
     gap: 3vw;
     margin-bottom: 14px;
   }
-  .stories__slider-wrapper {
+  .stories__slider-wrapper,
+  .tests__block-list {
     margin-bottom: 40px;
   }
 }

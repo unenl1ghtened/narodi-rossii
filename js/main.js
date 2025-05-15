@@ -38,10 +38,10 @@
     slidesPerView: "auto",
     loop: true,
 
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
 
     navigation: {
       nextEl: ".stories__slider-button--next",
