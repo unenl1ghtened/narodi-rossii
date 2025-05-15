@@ -29,4 +29,23 @@
       });
     }
   }
+
+  // слайдер истории
+
+  const swiper = new Swiper(".stories__slider-inner", {
+    direction: "horizontal",
+    spaceBetween: 21,
+    slidesPerView: "auto",
+    loop: true,
+
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+
+    navigation: {
+      nextEl: ".stories__slider-button--next",
+      prevEl: ".stories__slider-button--prev",
+    },
+  });
 })();
