@@ -1,0 +1,70 @@
+/* ========GLOBAL-STYLES========= */
+:root {
+  --general-text: #312c27;
+  --accent-text: #000000;
+  --general-bg: #eeeeee;
+  --accent-bg: #ffffff;
+  --accent-color: #37599b;
+  --transition: all 0.3s;
+  --border-radius: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  background: var(--general-bg);
+  color: var(--general-text);
+}
+
+.container {
+  max-width: 1330px; /* 1300 + 30 */
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 274px;
+  overflow: hidden;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  color: #312c27;
+  background: var(--accent-color);
+  border-radius: 60px;
+  padding: 3px 15px;
+  height: 62px;
+  width: 100%;
+
+  transition: var(--transition);
+}
+
+.button:hover {
+  background: #ff9138;
+}
+
+/* ============================= */
