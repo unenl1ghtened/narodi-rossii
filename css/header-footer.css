@@ -2,6 +2,16 @@
 
 /* ========HEADER========= */
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--general-bg);
+  margin-bottom: 105px;
+  z-index: 10;
+}
+
 .header__inner,
 .logo,
 .header__left {
@@ -190,7 +200,10 @@
 @media (max-width: 900px) {
   .header__inner {
     gap: 6vw;
+    padding-top: 12px;
+    padding-bottom: 14px;
   }
+
   .nav__list {
     gap: 2vh 30px;
   }

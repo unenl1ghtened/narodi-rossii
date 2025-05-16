@@ -30,22 +30,68 @@
     }
   }
 
+  // хедер
+  const useHeader = () => {
+    const header = document.querySelector(".header");
+    if (!header) return;
+
+    const heroSection = document.querySelector(".hero");
+    const headerHeight = header.offsetHeight;
+    let lastScrollTop = 0;
+
+    // Задем отступ от .hero т.к. .header выпадает изи потока
+    if (heroSection) {
+      heroSection.style.marginTop = `${headerHeight}px`;
+    } else {
+      const nextSection = header.nextElementSibling;
+
+      if (nextSection) {
+        nextSection.style.marginTop = `${headerHeight}px`;
+      }
+    }
+  };
+  useHeader();
+
   // слайдер истории
 
-  const swiper = new Swiper(".stories__slider-inner", {
-    direction: "horizontal",
-    spaceBetween: 21,
-    slidesPerView: "auto",
-    loop: true,
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".stories__slider-wrapper");
+    const slides = document.querySelectorAll(".stories__slide");
 
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+    const swiper = new Swiper(".stories__slider-inner", {
+      direction: "horizontal",
+      spaceBetween: 21,
+      slidesPerView: "auto",
+      loop: true,
 
-    navigation: {
-      nextEl: ".stories__slider-button--next",
-      prevEl: ".stories__slider-button--prev",
-    },
+      navigation: {
+        nextEl: ".stories__slider-button--next",
+        prevEl: ".stories__slider-button--prev",
+      },
+      on: {
+        init: checkSliderState,
+        resize: checkSliderState,
+      },
+    });
+
+    function checkSliderState() {
+      // Ширина видимой части
+      const visibleWidth = document.querySelector(
+        ".stories__slider-inner"
+      ).offsetWidth;
+      // Общая ширина всех слайдов
+      const totalSlidesWidth = Array.from(slides).reduce((sum, slide) => {
+        return sum + slide.offsetWidth + 21; // +21 — пробел между слайдами
+      }, 0);
+
+      const isScrollable = totalSlidesWidth > visibleWidth + 20;
+
+      if (isScrollable) {
+        wrapper.style.justifyContent = "";
+      } else {
+        wrapper.style.display = "flex";
+        wrapper.style.justifyContent = "center";
+      }
+    }
   });
 })();

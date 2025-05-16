@@ -39,7 +39,7 @@
 .hero__image-btn {
   position: absolute;
   right: 50%;
-  outline: 15px solid #fff;
+  outline: 15px solid var(--general-bg);
   border-radius: 50%;
   transform: translateX(50%) translateY(-50%);
   width: 149px;
@@ -47,9 +47,10 @@
   font-size: 20px;
 }
 .hero__image-btn:active {
-  outline: 15px solid #fff;
+  outline: 15px solid var(--general-bg);
   box-shadow: inset 5px 4px 5px rgba(0, 0, 0, 0.4);
 }
+.stories__slider
 
 /* =======MAP========== */
 
@@ -84,12 +85,16 @@
 .stories {
   background: url(../img/decor/Vector.svg) no-repeat;
   background-position: 50% 70%;
+  background-size: contain;
 }
 .stories__slider {
   position: relative;
-  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+}
+.stories__slider-wrapper {
+  margin-bottom: 60px;
+  /* justify-content: center; */
 }
 .stories__slider-wrapper,
 .tests__block-list {
@@ -103,15 +108,22 @@
   margin-bottom: 26px;
 }
 .stories__slider-button {
-  padding: 20px 24px;
   border: 1px solid #000;
   border-radius: 50%;
   width: 61px;
   height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: var(--transition);
 }
-.stories__slider-button path {
-  fill: #000;
+.stories__slider-button:hover {
+  background: var(--accent-color);
+  border: none;
+}
+.stories__slider-button:hover path {
+  fill: var(--general-bg);
 }
 .stories__slide {
   position: relative;
@@ -167,23 +179,17 @@
 /* =======TESTS====== */
 
 .tests {
-  position: relative;
-}
-.tests::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url(../img/decor/Vector.svg) no-repeat;
+  background: url(../img/decor/Vector-2.svg) no-repeat;
   background-position: 50% 70%;
-  transform: rotate(180deg);
-  z-index: -1;
+  background-size: contain;
 }
+
 .tests__block-list {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1vw;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 }
 
 .tests__block {
@@ -247,7 +253,7 @@
   .hero__image-btn {
     width: 129px;
     height: 129px;
-    outline: 10px solid #fff;
+    outline: 10px solid var(--general-bg);
   }
 }
 
@@ -271,7 +277,7 @@
   .hero__image-btn {
     width: 109px;
     height: 109px;
-    outline: 6px solid #fff;
+    outline: 6px solid var(--general-bg);
     font-size: 16px;
   }
 
@@ -305,9 +311,6 @@
   .stories__slider-button {
     width: 51px;
     height: 51px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0;
   }
 }
